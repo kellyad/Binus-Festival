@@ -1,0 +1,139 @@
+Binus Festival Schedule Generation Algorithm
+BEGIN
+	GET semester
+	GET system configuration list
+	GET unpublished schedule list using semester and system configuration list
+	WHILE there's an unproccessed item in unpublished schedule list
+		GET a new item from the list
+		DELETE the new item from the list
+	ENDWHILE
+	GET campus list
+	WHILE there's an unproccessed item in campus list
+		GET a new item from the list
+		GET location list using campus
+		WHILE there's an unproccessed item in location list
+			GET a new item from the list
+			GET schedule list using semester
+			WHILE there's an unproccessed item in schedule list
+				GET a new item from the list
+				GET total day, room, and shift of the new item
+				SET priority to multiplication result of total day, room, and shift
+				SET priority into a new item in schedule priority list
+				SET room used into a new item in room priority list
+			ENDWHILE
+			WHILE there's an unproccessed item in schedule list
+				GET a new item from the list
+				GET facility list of the new item
+				GET date list of the new item
+				SET date total to total of items in date list
+				GET shift list of the new item
+				SET shift total to total of items in shift list
+				IF the item must be divided evenly by room Then
+					SET room total to room mapping calculation
+				ELSE
+					SET room total to 1
+				ENDIF
+				IF the item must be divided evenly by day Then
+					SET date total to date total
+				ELSE
+					SET date total to 1
+				ENDIF
+				IF the item must be divided evenly by shift Then
+					SET shift total to shift total
+				ELSE
+					SET shift total to 1
+				ENDIF
+				GET binusian list USING item's participant SETTING
+				GET the item's capacity SETTing of the new item
+				GET room list using item's room SETTING
+				WHILE there's an unproccessed item in room list and ordered by room priority list
+					GET a new item from the list
+					GET shift list using the new item
+					WHILE there's an unproccessed item in shift list
+						GET a new item from the list
+						GET date list using the new item
+						WHILE there's an unproccessed item in date list
+							GET STATUS AS FALSE
+							WHILE STATUS are FALSE
+							GET a new item from the list
+							IF there is not exist a schedule with the same room, shift, and date Then
+								IF the item's capacity SETTing is not used (ignored) Then
+									SET property of binusian list into attENDee list by count number until number + (binusian total/(date total * shift total * room total))  
+								ELSE IF the item's capacity SETTing is normal (bcs capacity) Then
+									IF the item's grouping SETTing is individual Then
+										SET property of binusian list into attENDee list by count number until number + capacity of the room(s) 
+									ELSE
+										SET property of binusian list into attENDee list by count number until number + capacity of the room(s) or Count group number until group number + 1  
+									ENDIF
+								ELSE IF the item's capacity SETting is greater than 1 Then
+									IF the item's grouping SETting is individual Then
+										SET property of binusian list into attENDee list by count number until number + capacity of the room(s) 
+									ELSE
+										SET property of binusian list into attENDee list by count number until number + capacity of the room(s) or  count group number until group number + capacity of the schedule  
+									ENDIF
+								ENDIF
+								IF the binusian in Binusian list has already been scheduled Then
+									DELETE the binusian from attENDee list
+									BREAK
+									BREAK
+									BREAK
+									SET STATUS AS FALSE
+								ELSE IF the binusian in attENDee list never been scheduled and the schedule don't have any crashing schedule Then
+									GET total of published schedule list
+									SET new id to total of published schedule added by 1
+									SET new id and other properties of the item into a new item in published schedule list
+									SET new id and binusian from attENDee list into student schedule list
+									DELETE data from attENDee list
+									SET number and group number to 0
+									SET STATUS AS TRUE
+								ELSE
+									DELETE data from attENDee list
+									BREAK
+									BREAK
+									BREAK
+									SET STATUS AS FALSE
+									CONTINUE
+								ENDIF
+								DELETE data from attENDee list
+								SET STATUS AS FALSE
+							ENDIF
+						ENDWHILE
+					ENDWHILE
+				ENDWHILE
+				IF there's still binusian in Binusian List who hasn't been scheduled yet
+					SET diff to all binusian subtracted by scheduled binusian
+				ENDIF
+				DELETE room list, shift list, date list, binusian list, attENDee list
+				SET number and group number to 0
+			ENDWHILE
+		ENDWHILE
+	ENDWHILE
+	WHILE there's an unproccessed item in published schedule list
+		GET a new item from the list
+		GET other properties of the item 
+		IF THERE's two or more topic on the same day from the item list
+			SET topic to be different topic on the day from the item list
+		END IF
+	END WHILE
+	GET published schedule list which type is workshop
+	WHILE there's an unproccessed item in published schedule list
+		GET a new item from the list
+		GET other properties of the item 
+		GET date list of the new item
+		WHILE there's an unprocessed item in date list
+		IF the date has not been scheduled 
+			GET total of published schedule list
+			SET new id to total of published schedule added by 1
+			SET contribution property of the item to visitor
+			SET new id and other properties of the item into a new item in published schedule list
+			GET All binusian from student schedule list using id from other properties of the item 
+			SET new id and All binusian into student schedule list
+		END IF
+		END WHILE
+	ENDWHILE
+	DELETE published schedule list of the production version
+	DELETE student schedule list of the production version
+	SET published schedule list into published schedule list of production version
+	SET student schedule list into student schedule list of production version
+	SET all configurations into an extract table named 'MsPublishSystem'
+END
