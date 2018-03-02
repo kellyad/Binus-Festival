@@ -1,0 +1,122 @@
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Add New Topic</h2>
+    <div id="formConfiguration" style="height:650px;">
+             <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column ">
+                    <p>
+                        <label>Topic</label>
+                        <span >
+                            <input type="text" class="txtTopic" > 
+                        </span>
+                    </p>
+                </div>
+                 <!-- <div class="column one-two">
+                    <p>
+                        <label>Type</label>
+                        <span class="custom-combobox">
+                            <select name="Type" id="ddlType">
+                            </select>
+                            <span class="loader" id="loaderType">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-two">
+                    <p>
+                        <label>Campus</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlCampus" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCampus">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                        
+                    </p>
+                </div> -->
+                <div class="column ">
+                    <p>
+                        <label>Room</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlRoom" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderRoom">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-two">
+                    <p>
+                        <label>Start Date</label>
+                        <span class='custom-datepicker'><input type='text' id='TxtStartDate' name='StartDate' class='datepicker'><span class='icon-area'></span>
+                    </p>
+                </div>
+                <div class="column one-two">
+                    <p>
+                        <label>End Date</label>
+                        <span class='custom-datepicker'><input type='text' id='TxtEndDate' name='EndDate' class='datepicker'><span class='icon-area'></span>
+                    </p>
+                </div>
+                <div style="margin: 0 0 20px;">
+                    <label>Time</label>
+                    <span id="time" style="display: inline-flex; margin-top: 15px;">
+                        <input type="text" class="hour" maxlength="2" style="width: 40px; margin-right: 5px; height: 25px;"> 
+                        : <input type="text" maxlength="2" class="hour" style="width: 40px; margin: 0px 5px; height: 25px;"> 
+                        - <input type="text" class="hour" maxlength="2" style="width: 40px; margin: 0px 5px; height: 25px;"> 
+                        : <input type="text" class="hour" maxlength="2" style="width: 40px; margin: 0px 5px; height: 25px;">
+                    </span>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Duration</label>
+                            <input type="text" class="txtDuration" > Minutes
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Post Duration</label>
+                                <input type="text" class="txtPostDuration" > Minutes
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>SAT Point</label>
+                            <input type="text" class="txtSATPoint" > Points
+                    </p>
+                </div>
+            </div>
+            </form>
+    </div>
+            <div class="column">
+                <span class="loader status failed" id="status-failed" style="display:none">
+                    <span class="indicator"></span>
+                    <span class="progress-text"></span>
+                </span>
+                <span class="loader" id="submitLoading" style="position:absolute;display:none;">
+                    <span class="indicator"></span>
+                    <span class="progress-text">Loading...</span>
+                </span>
+                
+            </div>    
+            <div style="margin:10px 0;text-align:right;" class="afterLoad">
+                    <input type="submit" value="Add" id="btnAdd" class="button button-primary" />
+                </div>    
+    </div>
+   
+    </div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>

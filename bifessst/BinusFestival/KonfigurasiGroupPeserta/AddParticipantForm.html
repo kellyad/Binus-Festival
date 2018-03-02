@@ -1,0 +1,334 @@
+<style>
+.custom-combobox{
+    overflow: hidden;
+
+}
+</style>
+<div class="popup popup-content" id="target-id">
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Create/Edit/View</label> Participant Configuration</h2>
+    <div id="formConfiguration" style="height:650px;">
+        <form id="formparticipant" action="" >
+         <div class="row">
+
+                <div class ="column"> <p>
+                        <label>Include or Allowed</label>
+                    </p></div>
+                <div class="column one-third">
+                    <p>
+                        <label>Institution</label>
+                        <span class="custom-combobox">
+                            <select name="AcademicInstitution" id="ddlAcademicInstitution">
+                            </select>
+                            <span class="loader" id="loaderInstitution">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Degree</label>
+                        <span class="custom-combobox">
+                            <select name="Degree" id="ddlDegree">
+                            </select>
+                            <span class="loader" id="loaderDegree">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Campus</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlCampus" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCampus">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                        <!-- <span class="custom-combobox">
+                            <select name="Campus" id="ddlCampus">
+                            </select>
+                            
+                        </span> -->
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Period</label>
+                        <span class="custom-combobox">
+                            <select name="Period" id="ddlPeriod">
+                            </select>
+                            <span class="loader" id="loaderPeriod">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Faculty</label>
+                        <span class="custom-combobox">
+                            <select name="Faculty" id="ddlFaculty">
+                            </select>
+                            <span class="loader" id="loaderFaculty">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Jurusan</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlJurusan" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderJurusan">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Binusian</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlBinusian" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderBinusian">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Course Attribute</label>
+                        <span class="custom-combobox">
+                            <select name="CourseAttribute" id="ddlCourseAttribute">
+                            </select>
+                            <span class="loader" id="loaderCourseAttribute">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Courses</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect" id="coursesselect">
+                                <select id="ddlCourses" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCourses">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>SAT Points Requirement</label>
+                        <span class="custom-combobox">
+                            <select name="SAT" id="ddlSAT">
+                            </select>
+                            <span class="loader" id="loaderSAT">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class ="column"> <p>
+                        <label>Exclude or Not Allowed</label>
+                    </p></div>
+                <div class="column one-third">
+                    <p>
+                        <label>Institution</label>
+                        <span class="custom-combobox">
+                            <select name="AcademicInstitution" id="ddlAcademicInstitutionExclude">
+                            </select>
+                            <span class="loader" id="loaderInstitutionExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Degree</label>
+                        <span class="custom-combobox">
+                            <select name="Degree" id="ddlDegreeExclude">
+                            </select>
+                            <span class="loader" id="loaderDegreeExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Campus</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlCampusExclude" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCampusExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                        <!-- <span class="custom-combobox">
+                            <select name="Campus" id="ddlCampus">
+                            </select>
+                            
+                        </span> -->
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Period</label>
+                        <span class="custom-combobox">
+                            <select name="Period" id="ddlPeriodExclude">
+                            </select>
+                            <span class="loader" id="loaderPeriodExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Faculty</label>
+                        <span class="custom-combobox">
+                            <select name="Faculty" id="ddlFacultyExclude">
+                            </select>
+                            <span class="loader" id="loaderFacultyExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Jurusan</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlJurusanExclude" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderJurusanExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Binusian</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlBinusianExclude" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderBinusianExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Course Attribute</label>
+                        <span class="custom-combobox">
+                            <select name="CourseAttribute" id="ddlCourseAttributeExclude">
+                            </select>
+                            <span class="loader" id="loaderCourseAttributeExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Courses</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect" id="coursesselect">
+                                <select id="ddlCoursesExclude" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCoursesExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>SAT Points Requirement</label>
+                        <span class="custom-combobox">
+                            <select name="SAT" id="ddlSATExclude">
+                            </select>
+                            <span class="loader" id="loaderSATExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>System Exclude</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect" id="coursesselect">
+                                <select id="ddlSystemExclude" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderSystemExclude">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+            </form>
+    </div>
+    
+    </div>
+   
+    </div>
+</div>
+</div>
+</div>
+        <input type='button' class='button button-primary' id='btnAddParticipant' value='Save' style='margin:0 0 15px 0;' />
+<script src="../asset/js/multiselect.js"></script>

@@ -1,0 +1,63 @@
+<style type="text/css">
+	.RoomDetail
+	{
+		width: 0;
+	}
+	.RoomDetail tr
+	{
+		border-bottom: none;
+	}
+</style>
+
+<div class="form-view">
+	<div class="item-view">
+		<div class="item-body">
+			<div class="row">
+				<div class="search-filter-form" id ="filter-master">
+				</div>
+				<!-- <span class ="loader status failed">
+					<span class ="indicator"></span>
+					<span class ="progress-text"></span>
+				</span> -->
+			</div>
+			<input type='button' class='button button-primary' id='btnAddPopUp' value='Add Row' style='margin:0 0 15px 0;' />
+			<div id="contentTable">
+				<table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
+					<thead>
+						<tr>
+							<th style="text-align:center">Topik Jadwal</th>
+							<th style="text-align:center">Pertemuan</th>
+							<th style="text-align:center">Action</th>
+							<th style="text-align:center">Option</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr id="iTemplateOfficialNotesPopUp" style="display:none">
+							<td class="iOfficialNotesID" style="display:none;"></td>
+							<td class="iInstitution" style="display:none;">
+								<input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+							</td>
+							<td class="iOrderBy" style="text-align:center">
+								<input type="text" class="txtOrderBy" name="OrderBy" size="1" style="text-align:center" maxlength="5" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+							</td>
+							<td class="iOfficialNotesIND" style="text-align:center">
+								<textarea class="txtOfficialNotesIND" rows="3" name="OfficialNotesIND" size="1" maxlength="250"></textarea>
+							</td>
+							<td class="iOfficialNotesENG" style="text-align:center">
+								<textarea class="txtOfficialNotesENG" rows="3" name="OfficialNotesEMG" size="1" maxlength="250"></textarea>
+							</td>
+							<td class="iOption" style="text-align:center"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<span class="loader failed" style="display:none">
+				<span class="indicator"></span>
+				<span class="progress-text"></span>
+			</span>
+			
+			<input type="submit" class="button button-primary" value="Save and go to Participant Configuration" id="btnSubmit" style="float:right; margin-top:20px"/>
+		</div>
+	</div>
+</div>

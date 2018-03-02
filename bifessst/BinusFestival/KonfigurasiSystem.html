@@ -1,0 +1,67 @@
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Create/Edit/View</label> System Configuration</h2>
+    <div id="formConfiguration" >
+        <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column one-third">
+                    <p>
+                        <label>Period</label>
+                        <span class="custom-combobox">
+                            <select name="Period" id="ddlPeriodPopUp">
+                            </select>
+                            <span class="loader" id="loaderPeriodPopUp">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            </form>
+    </div>
+    
+    </div>
+    <input type='button' class='button button-primary' id='btnAddPopUp' value='Add Row' style='margin:0 0 15px 0;' />
+            <div id="contentTable">
+                <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">System Name</th>
+                            <th style="text-align:center">Period</th>
+                            <th style="text-align:center">Status</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr id="iTemplateOfficialNotesPopUp" style="display:none">
+                            <td class="iOfficialNotesID" style="display:none;"></td>
+                            <td class="iInstitution" style="display:none;">
+                                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+                            </td>
+                            <td class="iSystem" style="text-align:center">
+                                <input type="text" class="txtSystem" name="System" size="1" style="text-align:center" />
+                            </td>
+                            <td class="iPeriod" style="text-align:center">
+                                
+                            </td>
+                            <td class="iStatus" style="text-align:center">
+                                 Not Saved 
+                            </td>
+                            <td class="iOption" style="text-align:center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <span class="loader failed" style="display:none">
+                <span class="indicator"></span>
+                <span class="progress-text"></span>
+            </span>
+        <input type='button' class='button button-primary' id='btnSave' value='Save' style='margin:0 0 15px 0;' />
+    </div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>

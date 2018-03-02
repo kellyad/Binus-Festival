@@ -1,0 +1,55 @@
+<style type="text/css">
+    .AllocationPicketDetail tr
+    {
+        border-bottom: 0px;
+    }
+</style>
+<div id="participantGroup-popup" class="popup-content">
+    <h2 class="heading-PopUp">ADD NEW PARTICIPANT GROUP CONFIGURATION</h2>
+    <form method="post" id="formAddParticipantGroup" enctype="multipart/form-data">
+        <div class="row">
+        <table class="ParticipantGroup">
+            <tr>
+                <td>PARTICIPANT GROUP NAME</td>
+                <td id="txtParticipantGrouppopup"><input type="text" class="txtParticipantGroup" name="ParticipantGroup" /></td>
+            </tr>
+            <tr>
+                <td>TOTAL SESSION</td>
+                <td id="txtSessionpopup"><input type="text" class="txtSession" name="Session" /></td>
+            </tr>
+            
+        </table>
+            
+
+            <div class="column one-half">
+                <p>
+                    <label>MANDATORY</label>
+                    <span class="group-radiobutton">
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="ShiftByMasterShift" name="radioShiftBy" value="1" checked>
+                            <label for="ShiftByMasterShift" class="label">Yes</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="ShiftByManual" name="radioShiftBy" value="0">
+                            <label for="ShiftByManual" class="label">No</label>
+                        </span>
+                    </span>
+                </p>
+            </div>
+
+            <div class="column">
+                <span class="loader status failed" id="status-failed" style="display:none">
+                    <span class="indicator"></span>
+                    <span class="progress-text"></span>
+                </span>
+                <span class="loader" id="submitLoading" style="position:absolute;display:none;">
+                    <span class="indicator"></span>
+                    <span class="progress-text">Loading...</span>
+                </span>
+                <div style="margin:10px 0;text-align:right;display:none" class="afterLoad">
+                    <input type="submit" value="Submit" id="btnSubmit" class="button button-primary" />
+                </div>
+            </div>        
+        </div>      
+    </form>
+</div>

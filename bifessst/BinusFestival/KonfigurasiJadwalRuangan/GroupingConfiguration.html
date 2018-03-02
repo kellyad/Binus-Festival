@@ -1,0 +1,102 @@
+<div class="popup popup-content" id="target-id">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Grouping Configuration</h2>
+    <div id="formConfiguration" style="height:250px;">
+             <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column ">
+                    <p>
+                        <label>Participant Group Name</label>
+                        <span >
+                           Group CB
+                        </span>
+                    </p>
+                </div>
+                 <!-- <div class="column one-two">
+                    <p>
+                        <label>Type</label>
+                        <span class="custom-combobox">
+                            <select name="Type" id="ddlType">
+                            </select>
+                            <span class="loader" id="loaderType">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div> -->
+                 <div class="column ">
+                    <p>
+                        <label>Group By</label>
+                        <span class="group-radiobutton">
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="Individual" name="GroupBy" value="Individual" checked>
+                            <label for="GroupByIndividual" class="label">Individual</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="AcademicGroup" name="GroupBy" value="ACAD_GROUP">
+                            <label for="GroupByAcademicGroup" class="label">Academic Group</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="Class" name="GroupBy" value="CLASS">
+                            <label for="GroupByClass" class="label">Class</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="AcademicProgram" name="GroupBy" value="ACAD_PROG">
+                            <label for="GroupByAcademicProgram" class="label">Academic Program</label>
+                        </span>
+                    </span>
+                        
+                    </p>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label>Divide Participant By</label>
+                        <span class="group-radiobutton">
+                        <span class="custom-radiobutton">
+                            <input type="checkbox" id="Shift" name="DivideBy" value="Shift">
+                            <label for="DivideByShift" class="label">Shift</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="checkbox" id="Day" name="DivideBy" value="Day">
+                            <label for="DivideByDay" class="label">Day</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="checkbox" id="Room" name="DivideBy" value="Room">
+                            <label for="DivideByRoom" class="label">Room</label>
+                        </span>
+                    </span>
+                        
+                    </p>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label>Capacity 1 Room</label>
+                        <span class="group-radiobutton">
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="Individual" name="Capacity" value="Individu" checked>
+                            <input type="number" id="Individualnumber" name="Individualnumber" />
+                            <label for="CapacityIndividual" class="label">Individu</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="AcademicGroup" name="Capacity" value="Ignore">
+                            <label for="CapacityIgnore" class="label">Ignore Capacity Room</label>
+                        </span>
+                        <span class="custom-radiobutton">
+                            <input type="radio" id="Class" name="Capacity" value="Oracle">
+                            <label for="CapacityOracle" class="label">Use Capacity From BCS</label>
+                        </span>
+                        
+                    </span>
+                        
+                    </p>
+    <input type='button' class='button button-primary' id='btnGroupSubmit' value='Save' style='margin:0 0 15px 0;' />
+                </div>
+                
+                
+            </div>
+            </form>
+    </div>
+    
+    
+</div>
+<script src="../asset/js/multiselect.js"></script>

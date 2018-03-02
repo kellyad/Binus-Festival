@@ -1,0 +1,108 @@
+<div class="site-content" id="site-content">
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="wrap">
+                <ul id="BC_Caption">
+                    <li><a href="#/index">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="page-heading">
+        <div class="container">
+            <h1></h1>
+        </div>
+    </section>
+</div>
+
+<div class="main-content has-widget" id="main-content">
+    <div class="container">
+        <div class="box-container">
+            <div class="inside">
+                <div id="content">
+                    <h2>Topic Configuration</h2>
+                    <div class="search-wrap"id="search-wrap">
+                     <form id="formSearch" action="">
+                         <div class="row">
+                             <div class="column one-half">
+                                <p>
+                                    <label>Period</label>
+                                    <span class="custom-combobox" id="institution">
+                                        <select name="ddlTerm" id="ddlTerm"></select>
+                                        <span class="loader" id="loaderTerm">
+                                            <span class="indicator"></span>
+                                            <span class="progress-text">Loading...</span>
+                                        </span>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="column one-half">
+                                <p>
+                                    <label>Campus</label>
+                                    <span class="custom-combobox" id="Campus">
+                                        <select id='ddlCampus' name='Campus'>Campus</select>
+                                        <span class="loader" id="loaderCampus">
+                                            <span class="indicator"></span>
+                                            <span class="progress-text">Loading...</span>
+                                        </span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="text-align:right;margin-top:5px;margin-bottom:5px;">
+                                <input type="button" class="button button-primary" id="btnSearch" value="Search" />
+                            </div>  
+                        </div>
+                    </form>
+                </div>
+
+
+                <center>  
+                    <span class="loader" id="loaderTableDetail" style="display: none;">
+                        <span class="indicator"></span>
+                        <span class="progress-text">Loading...</span>
+                    </span>
+                </center>
+
+                <div id="contentTableDetail" class="freeze-pane" style="overflow-y: hidden;">
+                    <table id="tblDetail" class="bordered zebra" style="text-align:center;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center">System Name</th>
+                                <th style="text-align:center">Participant Group Name</th>
+                                <th style="text-align:center">Topic</th>
+                                <th style="text-align:center">Type</th>
+                                <th style="text-align:center">Date</th>
+                                <th style="text-align:center">Start Time</th>
+                                <th style="text-align:center">End Time</th>
+                                <th style="text-align:center">Duration</th>
+                                <th style="text-align:center">Room</th>
+                                <th style="text-align:center">Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>  
+
+                <div id="sectionTemplateDetail" style="display:none">
+                    <table id="tblTemplateDetail" class="bordered zebra">
+                        <tbody>
+                           <tr id="iTemplateHeader" class="looptemplate" style="display: none;">
+                            <td class="iSystemName center"></td>
+                            <td class="iGroupName center"></td>
+                            <td class="iTopic center"></td>
+                            <td class="iType center"></td>
+                            <td class="iDate center"></td>
+                            <td class="iStartTime center"></td>
+                            <td class="iEndTime center"></td>
+                            <td class="iDuration center"></td>
+                            <td class="iRoom center"></td>
+                            <td class="iAction center"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,313 @@
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Create/Edit/View  Schedule Configuration - </label></h2>
+    <div id="formConfiguration" style="height:650px;">
+         <div class="row">
+          <div class="column has-border three-third">
+           <div id="previousSchedule" class="inside">
+             <dl>
+               <dt>Participant Group Name</dt>
+                 <dd id='lblParticipantGroupName'></dd>
+               <dt>Session</dt>
+                 <dd id='lblSession'></dd>
+               <dt>Total Participant</dt>
+               <span class="iLoadingPopup" colspan="10" style="text-align:center">
+                    <img alt=""></img>
+                </span>
+                 <dd id='lblTotalParticipant'></dd>
+             </dl>
+           </div>
+          </div>
+         </div> 
+         <input type='button' class='button button-primary' id='btnGroupConfig' value='Grouping Configuration' style='margin:0 0 15px 0;' />
+         <input type='button' class='button button-primary' id='btnAddTopicUp' value='Add New Topic' style='margin:0 0 15px 0;' />
+         <input type='button' class='button button-primary' id='btnExportToExcel' value='Export To Excel' style='margin:0 0 15px 0;' />
+            <div id="contentTable">
+                <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Topic</th>
+                            <th style="text-align:center">Type</th>
+                            <th style="text-align:center">Start Date</th>
+                            <th style="text-align:center">End Date</th>
+                            <th style="text-align:center">Start Time</th>
+                            <th style="text-align:center">End Time</th>
+                            <th style="text-align:center">Duration</th>
+                            <th style="text-align:center">Post Duration</th>
+                            <th style="text-align:center">Campus</th>
+                            <th style="text-align:center">Room</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr id="iTemplateDataPopUp" style="display:none">
+                            <td class="iOfficialNotesID" style="display:none;"></td>
+                            <td class="iTotal" style="display:none;">
+                            </td>
+                            <td class="iTopic" style="text-align:center">
+                            </td>
+                            <td class="iType" style="text-align:center">
+                            </td>
+                            <td class="iStartDate" style="text-align:center">
+                            </td>
+                            <td class="iEndDate" style="text-align:center">
+                            </td>
+                            <td class="iStartTime" style="text-align:center">
+                            </td>
+                            <td class="iEndTime" style="text-align:center">
+                            </td>
+                            <td class="iDuration" style="text-align:center">
+                            </td>
+                            <td class="iPostDuration" style="text-align:center">
+                            </td>
+                            <td class="iCampus" style="text-align:center">
+                            </td>
+                            <td class="iRoom" style="text-align:center">
+                            </td>
+                            <td class="iOption" style="text-align:center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="iTotalAssign"></div>
+            </div>
+
+            <span class="loader failed" style="display:none">
+                <span class="indicator"></span>
+                <span class="progress-text"></span>
+            </span>
+            
+            <input type="submit" class="button button-primary" value="Save and go to Participant Configuration" id="btnSubmit" style="float:right; margin-top:20px"/>
+       <!--  <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column one-third">
+                    <p>
+                        <label>Institution</label>
+                        <span class="custom-combobox">
+                            <select name="AcademicInstitution" id="ddlAcademicInstitution">
+                            </select>
+                            <span class="loader" id="loaderInstitution">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Degree</label>
+                        <span class="custom-combobox">
+                            <select name="Degree" id="ddlDegree">
+                            </select>
+                            <span class="loader" id="loaderDegree">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Campus</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlCampus" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCampus">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                        
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Period</label>
+                        <span class="custom-combobox">
+                            <select name="Period" id="ddlPeriod">
+                            </select>
+                            <span class="loader" id="loaderPeriod">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Faculty</label>
+                        <span class="custom-combobox">
+                            <select name="Faculty" id="ddlFaculty">
+                            </select>
+                            <span class="loader" id="loaderFaculty">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Jurusan</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlJurusan" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderJurusan">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Binusian</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlBinusian" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderBinusian">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Course Attribute</label>
+                        <span class="custom-combobox">
+                            <select name="CourseAttribute" id="ddlCourseAttribute">
+                            </select>
+                            <span class="loader" id="loaderCourseAttribute">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Courses</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect" id="coursesselect">
+                                <select id="ddlCourses" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderCourses">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Date From</label>
+                        <span class='custom-datepicker'><input type='text' id='TxtDateFrom' name='dateFrom' class='datepicker'><span class='icon-area'></span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Date To</label>
+                        <span class='custom-datepicker'><input type='text' id='TxtDateTo' name='dateto' class='datepicker'><span class='icon-area'></span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Report Type</label>
+                        <span class="custom-combobox">
+                            <select name="IReportType" id="ddlIReportType">
+                            </select>
+                            <span class="loader" id="loaderReportType">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Status</label>
+                        <span class="custom-combobox">
+                            <select name="IFacilityRespondStatusForReport" id="ddlIFacilityRespondStatusForReport">
+                            </select>
+                            <span class="loader" id="loaderStatus">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-third">
+                    <p>
+                        <label>Diff Time Option</label>
+                        <span class="custom-combobox">
+                            <select name="DiffTimeOpt" id="ddlIDiffTimeOpt">
+                            </select>
+                           
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-third">
+                    <p>
+                        <label>Diff Time (Minutes)</label>
+                        <span><input type='text' id='TxtDiffTime' name='DiffTime' ></span>
+                    </p>
+                </div>
+                <div style="text-align:right;margin-top:5px;margin-bottom:5px;">
+                    <p>
+                        <input type="button" style="margin-right:10px" value="Export Excel" id="btnExport" class="button button-primary">
+                        <input type="button" value="Search" id="btnSearch" class="button button-primary">
+                    </p>
+                </div>  
+            </div>
+            </form> -->
+    </div>
+    
+    </div>
+    <!-- <table id="firstTemplate">
+        <thead>
+            <tr>
+                <th colspan="1"><input type='checkbox'id='allOrg'></th>
+                <th colspan="4">Major</th>
+                <th colspan="1"><input type='checkbox'id='allMandatory'>Mandatory</th>
+            </tr>
+        </thead>
+        <tbody id="fillTable">
+            <tr id="loadingpopup">
+                <td class="iLoadingPopup" colspan="10" style="text-align:center">
+                    <img alt=""></img>
+                </td>
+            </tr>
+            
+            <tr id="rowOrg"class="looptemplate"style="display:none;">
+                <td colspan="1"class="rowInput"></td>
+                <td colspan="4"class="iTitle"></td>
+                <td colspan="1"class="iMandatory"></td>
+            </tr>
+            <tr id="rowCourse"class="looptemplate"style="display:none;">
+                <td></td>
+                <td colspan="1"style="width:1%;"class="rowInput"></td>
+                <td colspan="3"class="iTitle"></td>
+                <td class="iMandatory"></td>
+            </tr>
+            <tr id="rowClass"class="looptemplate"style="display:none;">
+                <td></td>
+                <td></td>
+                <td colspan="1"style="width:1%;"class="rowInput"></td>
+                <td colspan="2"class="iTitle"></td>
+                <td class="iMandatory"></td>
+            </tr>
+        </tbody>
+    </table> -->
+    </div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>
