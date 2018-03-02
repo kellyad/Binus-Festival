@@ -1,0 +1,137 @@
+<div class="popup popup-content" id="target-id">
+    <div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row" id="BeforePrev">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Edit Schedule Attribute</h2>
+    <div id="formConfiguration" style="height:450px;">
+             <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column ">
+                    <p>
+                        <label>Topic</label>
+                        <span >
+                            <input type="text" class="txtTopic" > 
+                        </span>
+                    </p>
+                </div>
+                 <div class="column one-two">
+                    <p>
+                        <label>Event Type</label>
+                        <span class="custom-combobox">
+                            <select name="Type" id="ddlEventType">
+                            </select>
+                            <span class="loader" id="loaderEventType">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                        
+                    </p>
+                </div>
+                <div class="column one-two">
+                    <p>
+                        <label>Date</label>
+                        <span class='custom-datepicker'><input type='text' id='TxtStartDate' name='StartDate' class='datepicker'><span class='icon-area'></span>
+                    </p>
+                </div>
+                <div class="column one-two" style="width:50%; margin: 0 0 20px;">
+                    <label>Start Time</label>
+                    <span id="time" style="display: inline-flex; margin-top: 15px;">
+                        <input type="text" class="hour" maxlength="2" style="width: 40px; margin-right: 5px; height: 25px;"> 
+                        : <input type="text" maxlength="2" class="hour" style="width: 40px; margin: 0px 5px; height: 25px;"> 
+                        
+                    </span>
+                </div>
+                <div class="column one-two" style="width:50%; margin: 0 0 20px;">
+                    <label>End Time</label>
+                    <span id="time" style="display: inline-flex; margin-top: 15px;">
+                        <input type="text" class="hour" maxlength="2" style="width: 40px; margin: 0px 5px; height: 25px;"> 
+                        : <input type="text" class="hour" maxlength="2" style="width: 40px; margin: 0px 5px; height: 25px;">
+                        
+                    </span>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label>Room</label>
+                        <span class="custom-combobox">
+                            <select name="Type" id="ddlRoom">
+                            </select>
+                            <span class="loader" id="loaderRoom">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label style="color:red;" >Capacity</label>
+                        <span style="color:red;">
+                            <span  id="AssignedCapacity" style="color:red;">99
+                                <!--<span class="indicator"></span>-->
+                            </span>/
+                            <span id="RoomCapacity"></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            </form>
+    </div>
+            <div class="column">
+                <span class="loader status failed" id="status-failed" style="display:none">
+                    <span class="indicator"></span>
+                    <span class="progress-text"></span>
+                </span>
+                <span class="loader" id="submitLoading" style="position:absolute;display:none;">
+                    <span class="indicator"></span>
+                    <span class="progress-text">Loading...</span>
+                </span>
+                
+            </div>    
+            <div style="margin:10px 0;text-align:right;" class="afterLoad">
+                    <input type="submit" value="Save" id="btnSave" class="button button-primary" style="display:none;"/>
+                </div>    
+    </div>
+   <div id="PopupMessage" style="display:none">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Confirmation</h2>
+   <table class="figuretab zebra bordered" id="tableFailed" style="text-align:center;">
+   <thead>
+       <th>Topic</th>
+       <th>Date</th>
+       <th>Start Time</th>
+       <th>End Time</th>
+       <th>Room</th>
+   </thead>
+   <tbody>
+        <tr id="iTemplatePopUp" style="display:none">
+            <td class="iOfficialNotesID" style="display:none;"></td>
+            <td class="iInstitution" style="display:none;">
+                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+            </td>
+            <td class="iTopic" style="text-align:center">
+                
+            </td>
+            <td class="iDate" style="text-align:center">
+                
+            </td>
+            <td class="iStartTime" style="text-align:center">
+            </td>
+            <td class="iEndTime" style="text-align:center">
+            </td>
+            <td class="iRoom" style="text-align:center">
+            </td>
+        </tr>
+   </tbody>
+   </table>
+   <div class="action">
+   </br>
+   <div> Are You Sure To Update Data ?</div>
+           <input type="button" id="btnYesPopup" class="button button-primary" value="YES" style="margin:auto; display:block;" /> <input type="button" id="btnNoPopup" class="button button-primary" value="NO" style="margin:auto; display:block;" />
+   </div>
+   </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>

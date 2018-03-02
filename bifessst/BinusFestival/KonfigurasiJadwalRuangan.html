@@ -1,23 +1,35 @@
+<style>
+.container{
+    width:90%;
+}
+</style>
 <div class="form-view">
     <div class="item-view">
         <div class="item-body">
             <div class="row">
-    <h2 class="heading" style="text-align:center"><label id="actionTitle">Create/Edit/View  Schedule Configuration - </label></h2>
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Schedule Configuration - </label></h2>
     <div id="formConfiguration" style="height:650px;">
          <div class="row">
           <div class="column has-border three-third">
            <div id="previousSchedule" class="inside">
-             <dl>
-               <dt>Participant Group Name</dt>
-                 <dd id='lblParticipantGroupName'></dd>
-               <dt>Session</dt>
-                 <dd id='lblSession'></dd>
-               <dt>Total Participant</dt>
+           <table style="border-collapse:inherit;">
+               <tr>
+                    <td style="width:25%;">Participant Group Name</td><td width='3px'>:</td>
+                    <td id='lblParticipantGroupName'></td>
+               </tr>
+               <tr>
+               <td style="width:25%;">Session </td><td width='3px'>:</td>
+                 <td id='lblSession'></td>
+               </tr>
+               <tr>
+               <td style="width:25%;">Total Participant </td><td width='3px'>:</td>
                <span class="iLoadingPopup" colspan="10" style="text-align:center">
                     <img alt=""></img>
                 </span>
-                 <dd id='lblTotalParticipant'></dd>
-             </dl>
+                 <td id='lblTotalParticipant'></td>
+               </tr>
+             </table>
+             
            </div>
           </div>
          </div> 
@@ -28,17 +40,17 @@
                 <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
                     <thead>
                         <tr>
-                            <th style="text-align:center">Topic</th>
-                            <th style="text-align:center">Type</th>
-                            <th style="text-align:center">Start Date</th>
-                            <th style="text-align:center">End Date</th>
-                            <th style="text-align:center">Start Time</th>
-                            <th style="text-align:center">End Time</th>
-                            <th style="text-align:center">Duration</th>
-                            <th style="text-align:center">Post Duration</th>
-                            <th style="text-align:center">Campus</th>
-                            <th style="text-align:center">Room</th>
-                            <th style="text-align:center">Action</th>
+                            <th style="width:10%;text-align:center">Topic</th>
+                            <th style="width:10%;text-align:center">Event Type</th>
+                            <th style="width:5%;text-align:center">Start Date</th>
+                            <th style="width:5%;text-align:center">End Date</th>
+                            <th style="width:10%;text-align:center">Start Time</th>
+                            <th style="width:10%;text-align:center">End Time</th>
+                            <th style="width:10%;text-align:center">Duration</th>
+                            <th style="width:10%;text-align:center">Post Duration</th>
+                            <th style="width:10%;text-align:center">Campus</th>
+                            <th style="width:10%;text-align:center">Room</th>
+                            <th style="width:5%;text-align:center">Action</th>
                         </tr>
                     </thead>
                     <tbody >

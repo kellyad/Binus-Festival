@@ -18,7 +18,7 @@ var popupSubView = {
         console.log(BM.filter.SessionID);
         // JANGTONI2016021501
         BM.ajax({
-            url: BM.serviceUri + 'bifest/masterevent/getMasterEventType',
+            url: BM.serviceUri + 'BifestController/EventTypeHandler/getMasterEventType',
             type: 'post',
             data: JSON.stringify({
                 INSTITUTION: "BNS01"

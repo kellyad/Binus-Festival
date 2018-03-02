@@ -29,7 +29,7 @@ var popupSubView = {
             // psx.setSingleData(prms.key);
             // if (prms.action == "view") {
             BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/GetParticipantByParticipantID",
+            url : BM.serviceUri + "BifestController/ParticipantHandler/getParticipantByParticipantID",
             type: "POST",
             data: JSON.stringify({
                     ParticipantID:BM.filter.ParticipantID
@@ -42,7 +42,7 @@ var popupSubView = {
                     $("#ddlAcademicInstitution").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderInstitution').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAcademicInstitutionJSON",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicInstitutionNoFilter",
                         type: "POST",
                         success: function(data){
                             $('#loaderInstitution').hide();
@@ -66,7 +66,7 @@ var popupSubView = {
                     $("#ddlDegree").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderDegree').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAcademicCareer",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicCareer",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION
@@ -93,7 +93,7 @@ var popupSubView = {
                     $("#ddlCampus").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCampus').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getCampus",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getCampus",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -128,7 +128,7 @@ var popupSubView = {
                     $("#ddlPeriod").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderPeriod').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getPeriod",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getPeriod",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -157,7 +157,7 @@ var popupSubView = {
                     $("#ddlFaculty").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderFaculty').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getFaculty",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getFaculty",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -187,7 +187,7 @@ var popupSubView = {
                     $("#ddlCourseAttribute").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCourseAttribute').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllCourseType",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseType",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -217,7 +217,7 @@ var popupSubView = {
                     $("#ddlJurusan").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderJurusan').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getJurusan",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getJurusan",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -255,7 +255,7 @@ var popupSubView = {
                     $("#ddlBinusian").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderBinusian').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllBinusian",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllBinusian",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -293,7 +293,7 @@ var popupSubView = {
                     $("#ddlCourses").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCourses').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllCourseByAcad_Career_Faculty",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseByAcad_Career_Faculty",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Include_INSTITUTION,
@@ -330,7 +330,7 @@ var popupSubView = {
                     $("#ddlAcademicInstitutionExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderInstitutionExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAcademicInstitutionJSON",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicInstitutionNoFilter",
                         type: "POST",
                         success: function(data){
                             $('#loaderInstitutionExclude').hide();
@@ -356,7 +356,7 @@ var popupSubView = {
                     $("#ddlDegreeExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderDegreeExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAcademicCareer",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicCareer",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION
@@ -383,7 +383,7 @@ var popupSubView = {
                     $("#ddlCampusExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCampusExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getCampus",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getCampus",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -418,7 +418,7 @@ var popupSubView = {
                     $("#ddlPeriodExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderPeriodExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getPeriod",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getPeriod",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -447,7 +447,7 @@ var popupSubView = {
                     $("#ddlFacultyExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderFacultyExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getFaculty",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getFaculty",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -477,7 +477,7 @@ var popupSubView = {
                     $("#ddlCourseAttributeExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCourseAttributeExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllCourseType",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseType",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -507,7 +507,7 @@ var popupSubView = {
                     $("#ddlJurusanExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderJurusanExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getJurusan",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getJurusan",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -545,7 +545,7 @@ var popupSubView = {
                     $("#ddlBinusianExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderBinusianExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllBinusian",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllBinusian",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -583,7 +583,7 @@ var popupSubView = {
                     $("#ddlSystemExclude ").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderSystemExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllSystemExclude",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllSystemExclude",
                         type: "POST",
                         data: JSON.stringify({
                             SystemID: BM.filter.SystemID,
@@ -614,7 +614,7 @@ var popupSubView = {
                     $("#ddlCoursesExclude ").empty().closest('.custom-combobox').find('.combobox-label').remove();
                     $('#loaderCoursesExclude').show();
                     BM.ajax({
-                        url : BM.serviceUri + "General_Head_Prefect/getAllCourseByAcad_Career_Faculty",
+                        url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseByAcad_Career_Faculty",
                         type: "POST",
                         data: JSON.stringify({
                                 Institution:datas[0].Exclude_INSTITUTION,
@@ -741,7 +741,7 @@ $('#ddlDegree').change(function(){
                 ParticipantID : (BM.filter.ParticipantID != undefined)?BM.filter.ParticipantID:""
             };
             BM.ajax({
-            url: BM.serviceUri + "General_Head_Prefect/saveParticipant",
+            url: BM.serviceUri + "BifestController/ParticipantHandler/saveParticipant",
             data: JSON.stringify(requestFormData),
             type: "POST",
             async: false,
@@ -840,7 +840,7 @@ $('#ddlDegree').change(function(){
         $("#ddlAcademicInstitution").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderInstitution').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAcademicInstitutionJSON",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicInstitutionNoFilter",
             type: "POST",
             success: function(data){
                 $('#loaderInstitution').hide();
@@ -865,7 +865,7 @@ $('#ddlDegree').change(function(){
         $("#ddlDegree").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderDegree').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAcademicCareer",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicCareer",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val()
@@ -894,7 +894,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCampus").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCampus').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getCampus",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getCampus",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -930,7 +930,7 @@ $('#ddlDegree').change(function(){
         $("#ddlPeriod").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderPeriod').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getPeriod",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getPeriod",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -960,7 +960,7 @@ $('#ddlDegree').change(function(){
         $("#ddlFaculty").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderFaculty').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getFaculty",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getFaculty",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -992,7 +992,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCourseAttribute").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCourseAttribute').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllCourseType",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseType",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -1024,7 +1024,7 @@ $('#ddlDegree').change(function(){
         $("#ddlJurusan").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderJurusan').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getJurusan",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getJurusan",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -1063,7 +1063,7 @@ $('#ddlDegree').change(function(){
         $("#ddlBinusian").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderBinusian').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllBinusian",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllBinusian",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -1103,7 +1103,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCourses").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCourses').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllCourseByAcad_Career_Faculty",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseByAcad_Career_Faculty",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
@@ -1146,7 +1146,7 @@ $('#ddlDegree').change(function(){
         $("#ddlAcademicInstitutionExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderInstitutionExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAcademicInstitutionJSON",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicInstitutionNoFilter",
             type: "POST",
             success: function(data){
                 $('#loaderInstitutionExclude').hide();
@@ -1173,7 +1173,7 @@ $('#ddlDegree').change(function(){
         $("#ddlDegreeExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderDegreeExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAcademicCareer",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAcademicCareer",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val()
@@ -1202,7 +1202,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCampusExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCampusExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getCampus",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getCampus",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1238,7 +1238,7 @@ $('#ddlDegree').change(function(){
         $("#ddlPeriodExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderPeriodExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getPeriod",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getPeriod",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1268,7 +1268,7 @@ $('#ddlDegree').change(function(){
         $("#ddlFacultyExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderFacultyExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getFaculty",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getFaculty",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1300,7 +1300,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCourseAttributeExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCourseAttributeExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllCourseType",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseType",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1331,7 +1331,7 @@ $('#ddlDegree').change(function(){
         $("#ddlJurusanExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderJurusanExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getJurusan",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getJurusan",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1370,7 +1370,7 @@ $('#ddlDegree').change(function(){
         $("#ddlBinusianExclude").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderBinusianExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllBinusian",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllBinusian",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1410,7 +1410,7 @@ $('#ddlDegree').change(function(){
         $("#ddlSystemExclude ").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderSystemExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllSystemExclude",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllSystemExclude",
             type: "POST",
             data: JSON.stringify({
                 SystemID: BM.filter.SystemID,
@@ -1445,7 +1445,7 @@ $('#ddlDegree').change(function(){
         $("#ddlCoursesExclude ").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCoursesExclude').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllCourseByAcad_Career_Faculty",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getAllCourseByAcad_Career_Faculty",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitutionExclude").val(),
@@ -1581,7 +1581,7 @@ $('#ddlDegree').change(function(){
                 ParticipantID : (BM.filter.ParticipantID != undefined)?BM.filter.ParticipantID:""
             };
             BM.ajax({
-            url: BM.serviceUri + "General_Head_Prefect/saveParticipant",
+            url: BM.serviceUri + "BifestController/ParticipantHandler/saveParticipant",
             data: JSON.stringify(requestFormData),
             type: "POST",
             async: false,

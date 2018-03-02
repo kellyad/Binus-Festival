@@ -1,0 +1,90 @@
+<div class="popup-content">
+    <h2 class="heading" style="text-align:center">Add / Edit Event Type</h2>
+    <form>
+        <div id="reasonInformation" style="display:none">
+            <p>
+            <label>Event Type</label>
+            <input type="text" maxlength="100" class="txtEventType has-tooltip" title="Max Length 100">
+            </p>
+        </div>
+        <div id="filter-popup-reason" style="display:none"></div>
+        <center id="filterPopUpLoader">
+        <span class="loader">
+        <span class="indicator"></span>
+        <span class="progress-text">Loading...</span>
+        </span>
+        </center>
+        <div class="row">
+            <label style="font-size: 30px;">Activity Organizer's</label>
+        </div>
+        <br/>
+
+        <p>
+            <label>Organizer's Name</label>
+            <input type='text' id='txtOrganizerName' maxlength='100' placeholder='Organizer Name'/>
+        </p>
+
+        <p>
+            <label>Email</label>
+            <input type='text' id='txtOrganizerEmail' maxlength='100' placeholder='Organizer Email'/>
+        </p>
+
+        <p>
+            <label>Address</label>
+               <input type='text' id='txtOrganizerAddress' maxlength='220' placeholder='Organizer Address'/>
+        </p>
+
+        <p>
+            <label>Contact Number</label>
+            <input type='text' id='txtOrganizerContact' maxlength='100' oninput="this.value = this.value.replace(/[^0-9]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"  placeholder='Organizer Contact Number'/>
+        </p>
+
+
+        <!-- <div class="row" style="margin-top: 15px;">
+            <div class="column one-half">
+                <label>Organizer's Name</label>
+            </div>
+            <div class="column one-half">
+                <label>Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-half">
+               <input type='text' id='txtOrganizerName' maxlength='100' placeholder='Organizer Name'/>
+            </div>
+            <div class="column one-half">
+                <input type='text' id='txtOrganizerEmail' maxlength='100' placeholder='Organizer Email'/>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            <div class="column one-half">
+                <label>Address</label>
+            </div>
+            <div class="column one-half">
+                <label>Contact Number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-half">
+               <input type='text' id='txtOrganizerAddress' maxlength='220' placeholder='Organizer Address'/>
+            </div>
+            <div class="column one-half">
+                <input type='text' id='txtOrganizerContact' maxlength='100' oninput="this.value = this.value.replace(/[^0-9]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"  placeholder='Organizer Contact Number'/>
+            </div>
+        </div> -->
+
+        <div id="reasonInformation2" style="display:none">
+            <p style="text-align:center">
+            <label style="color:red" class="lblError"></label>
+            <input type="button" class="button button-primary btnSave" value="SAVE">
+            </p>
+        </div>
+    </form>
+
+    <center id="reasonLoader">
+    <span class="loader">
+    <span class="indicator"></span>
+    <span class="progress-text">Loading...</span>
+    </span>
+    </center>
+</div>

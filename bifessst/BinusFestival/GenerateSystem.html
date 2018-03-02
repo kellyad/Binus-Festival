@@ -1,0 +1,111 @@
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row search-filter-form">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Generate Schedule</label> </h2>
+    <div id="formConfiguration" >
+        <form id="formparticipant" action="" >
+         <div class="row">
+                <div class="column">
+                    <p>
+                        <label>Period</label>
+                        <span class="custom-combobox">
+                            <select name="Period" id="ddlPeriodPopUp">
+                            </select>
+                            <span class="loader" id="loaderPeriodPopUp">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>
+                        <label>System</label>
+                        <span class="custom-combobox">
+                            <select name="System" id="ddlSystemPopUp">
+                            </select>
+                            <span class="loader" id="loaderSystemPopUp">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                </div>
+           
+
+            <input type='button' class='button button-primary' id='btnSearch' value='Search' style='float:right;margin-right:15px; margin-top:15px;' />
+             <input type='button' class='button button-primary' id='btnExport' value='Export To Excel' style='float:right;margin-right:15px; margin-top:15px;margin-bottom:15px;' />
+            </div>
+            </form>
+    </div>
+    
+    </div>
+<!--     <input type='button' class='button button-primary' id='btnAddPopUp' value='Add Row' style='margin:0 0 15px 0;' /> -->
+            <div id="contentTable">
+                <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;display:none;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">System Name</th>
+                            <th style="text-align:center">Status</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr id="iTemplateOfficialNotesPopUp" style="display:none">
+                            <td class="iOfficialNotesID" style="display:none;"></td>
+                            <td class="iInstitution" style="display:none;">
+                                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+                            </td>
+                            <td class="iSystem" style="text-align:center">
+                                
+                            </td>
+                            
+                            <td class="iStatus" style="text-align:center">
+                                 Not Saved 
+                            </td>
+                            <td class="iOption" style="text-align:center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <span class="loader failed" style="display:none">
+                <span class="indicator"></span>
+                <span class="progress-text"></span>
+            </span>
+            <div style="text-align:right">
+        <input type='button' class='button button-primary' id='btnPublish' value='Publish' style='margin-right:15px; margin-top:15px; display:none;' />
+        <input type='button' class='button button-primary' id='btnUnpublish' value='Unpublish' style='margin-right:15px; margin-top:15px; display:none;' /> 
+        <input type='button' class='button button-primary' id='btnGenerate' value='Generate' style='margin-right:15px; margin-top:15px; display:none;' />
+        </div>
+    </div>
+    <div id="popup-message" style="width:90%;height:300px;display:none;">
+    <div align="center">
+        <h3 class="title"></h3>
+        <p class="message">
+    </div>
+    <div align="center" class="button-list">
+        
+    </div>
+</div>
+</div>
+</div>
+<div id="hidden" style="display:none;">
+<div class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: block;"><div class="fancybox-wrap fancybox-desktop fancybox-type-html popup fancybox-opened" tabindex="-1" style="width: 250px; height: 200px; position: absolute; top: 20px; left: 40%; opacity: 1; overflow: visible; visibility: visible;"><div class="fancybox-skin" style="padding: 15px; width: auto; height: auto;"><div class="fancybox-outer"><div class="fancybox-inner" style="overflow: auto; width: 819px; height: 333px;"><style>
+.popup popup-content{
+    margin-top: 0px !important;
+}
+</style>
+<div class="popup popup-content" id="target-id" style="visibility: visible;">
+        <span class="loader" id="loaderSystemPopUp" >
+            <span class="indicator"></span>
+            <span class="progress-text">Loading...</span>
+        </span>
+</div>
+    
+</div></div><a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a></div></div></div>
+</div>
+<script src="../asset/js/multiselect.js"></script>

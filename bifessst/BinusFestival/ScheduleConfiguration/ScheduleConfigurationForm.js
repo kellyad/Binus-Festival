@@ -18,7 +18,7 @@ var popupSubView = {
         console.log(BM.filter.SessionID);
         // JANGTONI2016021501
         BM.ajax({
-            url: BM.serviceUri + 'bifest/masterevent/getMasterEventType',
+            url: BM.serviceUri + 'BifestController/EventTypeHandler/getMasterEventType',
             type: 'post',
             data: JSON.stringify({
                 INSTITUTION: "BNS01"
@@ -43,7 +43,7 @@ var popupSubView = {
             }
         });
          BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/GetAllFacilityIDByParticipantGroupID",
+            url : BM.serviceUri + "BifestController/ScheduleHandler/getAllFacilityIDByParticipantGroupID",
             type: "POST",
             data: JSON.stringify({
                     ParticipantGroupID:BM.filter.ParticipantGroupID
@@ -81,7 +81,7 @@ var popupSubView = {
          // else{console.log("ddd");}
          // console.log(BM.filter.ScheduleConfigurationID);
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/GetScheduleConfigurationByID",
+            url : BM.serviceUri + "BifestController/ScheduleHandler/getScheduleConfigurationByID",
             type: "POST",
             data: JSON.stringify({
                     ScheduleConfigurationID:(typeof BM.filter.ScheduleConfigurationID !="undefined")? BM.filter.ScheduleConfigurationID : null
@@ -135,7 +135,7 @@ $('#btnAdd').click(function() {
                                                     //console.log($('#ddlEvent').val() + ' ' + $('#ddlRoomUsage').val()); return;
                                                     $(this).attr('disabled', 'disabled');
                                                     BM.ajax({
-                                                        url: BM.serviceUri + 'General_Head_Prefect/insertScheduleConfiguration',
+                                                        url: BM.serviceUri + 'BifestController/ScheduleHandler/saveScheduleConfiguration',
                                                         type: 'POST',
                                                         data: JSON.stringify({
                                                             ParticipantGroupID:BM.filter.ParticipantGroupID,
@@ -217,7 +217,7 @@ $('#btnPreview').click(function() {
                                             if ($('.txtDuration').val()>0) {
                                                 if ($('.txtPostDuration').val()>=0) {
                                                     BM.ajax({
-                                                        url: BM.serviceUri + "BinusFestival/GetShiftPreview",
+                                                        url: BM.serviceUri + "BifestController/ScheduleHandler/getShiftPreview",
                                                         data: JSON.stringify({'Topic': $('.txtTopic').val(),
                                                         'StartDate' : $('#TxtStartDate').val(),
                                                         'EndDate' : $('#TxtEndDate').val(),

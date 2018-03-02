@@ -3,7 +3,7 @@
     <div class="item-view">
         <div class="item-body">
             <div class="row" id="BeforePrev">
-    <h2 class="heading" style="text-align:center"><label id="actionTitle2">Add New Topic</h2>
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Edit Topic Attribute</h2>
     <div id="formConfiguration" style="height:650px;">
              <form id="formparticipant" action="" >
          <div class="row">
@@ -15,19 +15,6 @@
                         </span>
                     </p>
                 </div>
-                 <!-- <div class="column one-two">
-                    <p>
-                        <label>Type</label>
-                        <span class="custom-combobox">
-                            <select name="Type" id="ddlType">
-                            </select>
-                            <span class="loader" id="loaderType">
-                                <span class="indicator"></span>
-                                <span class="progress-text">Loading...</span>
-                            </span>
-                        </span>
-                    </p>
-                </div> -->
                  <div class="column one-two">
                     <p>
                         <label>Event Type</label>
@@ -40,21 +27,6 @@
                             </span>
                         </span>
                         
-                    </p>
-                </div>
-                <div class="column ">
-                    <p>
-                        <label>Room</label>
-                        <div style="width:100%;display:inline-block; margin-top:-14px;">
-                            <span class="custom-multiselect">
-                                <select id="ddlRoom" multiple="multiple">
-                                </select>
-                            </span>
-                            <span class="loader" id="loaderRoom">
-                                <span class="indicator"></span>
-                                <span class="progress-text">Loading...</span>
-                            </span>
-                        </div>
                     </p>
                 </div>
                 <div class="column one-two">
@@ -78,7 +50,22 @@
                         : <input type="text" class="hour" maxlength="2" style="width: 40px; margin: 0px 5px; height: 25px;">
                     </span>
                 </div>
-                <div class="column one-third">
+                <div class="column ">
+                    <p>
+                        <label>Room</label>
+                        <div style="width:100%;display:inline-block; margin-top:-14px;">
+                            <span class="custom-multiselect">
+                                <select id="ddlRoom" multiple="multiple">
+                                </select>
+                            </span>
+                            <span class="loader" id="loaderRoom">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </div>
+                    </p>
+                </div>
+               <!--  <div class="column one-third">
                     <p>
                         <label>Duration</label>
                             <input type="text" class="txtDuration" > Minutes
@@ -95,7 +82,7 @@
                         <label>SAT Point</label>
                             <input type="text" class="txtSATPoint" > Points
                     </p>
-                </div>
+                </div> -->
             </div>
             </form>
     </div>
@@ -111,25 +98,11 @@
                 
             </div>    
             <div style="margin:10px 0;text-align:right;" class="afterLoad">
-                     <input type="button" value="Preview" id="btnPreview" class="button button-primary" style="margin-right:15px;" /><input type="submit" value="Save" id="btnAdd" class="button button-primary" />
+                     <input type="button" value="Preview" id="btnPreview" class="button button-primary" style="margin-right:15px;" /><input type="submit" value="Add" id="btnAdd" class="button button-primary" />
                 </div>    
     </div>
    <div id="PopupMessage" style="display:none">
-    <h2 class="heading" style="text-align:center"><label id="actionTitle">Preview Topic</h2>
-    <table>
-    <tr>
-    <td style="width:50%;"><label >Topic</label></td>
-    <td style="width:50%;"><label id="actionTopic"></label></td>
-    </div>
-    </tr>
-    <tr>
-    <td style="width:50%;"><label >Start Date</label></td>
-    <td style="width:50%;"><label id="actionStartDate"></label></td>
-    </tr>
-    <tr>
-    <td style="width:50%;"><label >End Date</label></td>
-    <td style="width:50%;"><label id="actionEndDate"></label></td>
-    </tr>
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Preview</h2>
    <table class="figuretab zebra bordered" id="tablePreview" style="text-align:center;">
    <thead>
        <th>Topic</th>
@@ -161,9 +134,7 @@
    </table>
    <div class="action">
    </br>
-   <div style="text-align:right;">
-            <input type="button" id="btnClosePopup" class="button button-primary" value="OK" style="margin:auto;" />
-    </div>
+            <input type="button" id="btnClosePopup" class="button button-primary" value="OK" style="margin:auto; display:block;" />
    </div>
    </div>
     </div>

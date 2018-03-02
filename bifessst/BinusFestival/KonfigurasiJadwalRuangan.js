@@ -26,23 +26,26 @@ var subView = {
             sx.initFilter(BM.headPrefectConfiguration);
         }
         $('#btnAddTopicUp').click(function(event){
-        BM.filter={SystemID : arg, ParticipantGroupID: sx.subject.group[sx.subject.current].ParticipantGroupID};
+        BM.filter={SystemID : arg, ParticipantGroupID: sx.subject.group[sx.subject.current].ParticipantGroupID,SessionID:sx.subject.session+1};
                         window.location = "#/event/binusfestival/konfigurasiJadwalRuangan."+arg+"#AddNewTopic";
                     }); 
         $('#btnGroupConfig').click(function(event){
-        BM.filter={SystemID : arg, ParticipantGroupID: sx.subject.group[sx.subject.current].ParticipantGroupID,SessionID:sx.subject.session+1};
+        BM.filter={SystemID : arg, ParticipantGroupID: sx.subject.group[sx.subject.current].ParticipantGroupID,ParticipantGroupName: sx.subject.group[sx.subject.current].ParticipantGroupName,SessionID:sx.subject.session+1};
                         window.location = "#/event/binusfestival/konfigurasiJadwalRuangan."+arg+"#GroupingConfiguration";
                     });
         $('#lblParticipantGroupName').html( sx.subject.group[sx.subject.current].ParticipantGroupName);
         $('#lblSession').html( sx.subject.session+1);
-        $('#btnSubmit').click(function(event){
+        $('#btnExportToExcel').click(function(event){
+        sx.ExportToExcel();
+        });
+       $('#btnSubmit').click(function(event){
        // BM.filter={SystemID : arg, ParticipantGroupID: sx.subject.group[sx.subject.current].ParticipantGroupID,SessionID:sx.subject.current};
         if($('#btnSubmit').val()=="Save And Finish") {
             window.location = "#/event/binusfestival/konfigurasiSystem";
         }else{
          if(!hasSubmitted){
             sx.subject.session++;
-         }else{ hasSubmitted = false;sx.subject.session =0; sx.subject.current++;}
+         }else{ sx.subject.session =0; sx.subject.current++;}
                         window.location = "#/event/binusfestival/konfigurasiJadwalRuangan."+arg;
                         sx.loadTable();
                     }
@@ -53,9 +56,10 @@ var subView = {
     },
     loadTable: function() {
         var sx = this;
+        hasSubmitted = false;
         if( sx.subject.session < sx.subject.group[sx.subject.current].TotalSession -1 )
         {
-            $("#btnSubmit").val("View Next Session");
+            $("#btnSubmit").val("Go To Next Session");
         } 
         else if( sx.subject.current+1 < sx.subject.group.length)
         { hasSubmitted = true;
@@ -108,11 +112,11 @@ var subView = {
                     $('.iCampus ', c).append(e.CAMPUS);
                     $('.iRoom ', c).append(e.FACILITY_ID);
                     $(c).click(function(event){
-                    BM.filter={SystemID : parameter, ParticipantGroupID : e.ParticipantGroupID, ScheduleConfigurationID : e.ScheduleConfigurationID};
+                    BM.filter={SystemID : parameter, ParticipantGroupID : e.ParticipantGroupID, ScheduleConfigurationID : e.ScheduleConfigurationID, SessionID : e.Session};
                     //sx.loadDataTable(initParam,e.ParticipantGroupID, e.ParticipantGroupName);
                     });
                     $('.iOption .icon-edit', c).click(function(event){
-                    BM.filter={SystemID : parameter, ParticipantGroupID : e.ParticipantGroupID, ScheduleConfigurationID : e.ScheduleConfigurationID};
+                    BM.filter={SystemID : parameter, ParticipantGroupID : e.ParticipantGroupID, ScheduleConfigurationID : e.ScheduleConfigurationID, SessionID : e.Session};
                         window.location = "#/event/binusfestival/konfigurasiJadwalRuangan."+parameter+"#AddNewTopic";
                     });
                     $('.iOption .icon-trash', c).click(function(event){
@@ -135,10 +139,34 @@ var subView = {
                     });
                     $('#tableOfficialNotesPopUp tbody').append(c);  
                 });
-                $('#iTotalAssign').html("Total Assigned : "+total+ " Participants");
+                $('#iTotalAssign').html("Capacity: "+total+ " Participants");
 
             }
         });
+        
+    },
+    ExportToExcel : function() {
+        var sx = this;
+        var data = {};
+                            data['Main'] = "Schedule";
+                            data['ParticipantGroupID'] = sx.subject.group[sx.subject.current].ParticipantGroupID;
+                            data['SessionID'] = sx.subject.session+1;
+                           
+                var form = document.createElement("form");
+            form.action = BM.serviceUri+'BinusFestival/getExportData';
+                form.method = 'POST';
+                form.target = '_blank';
+                if (data) {
+                    for (var key in data) {
+                        var input = document.createElement("textarea");
+                        input.name = key;
+                        input.value = typeof data[key] === "object" ? JSON.stringify(data[key]) : data[key];
+                        form.appendChild(input);
+                    }
+                }
+                form.style.display = 'none';
+                document.body.appendChild(form);
+                form.submit();
         
     },
     loadDegree : function() {
@@ -307,36 +335,7 @@ var subView = {
                 $('#ddlCourseAttribute').change(function(){
                     sx.loadCourse();
                 });
-                // $("#ddlCourses").change(function(){
-                //      if ($("#ddlCourses option:not(:selected)").length == 0){
-                //         $('#chkCourses').prop('checked',true);
-                       
-                //      }
-                //      else{
-                //          $('#chkCourses').prop('checked',false);
-                         
-                //      }
-
-                // })
-               
-                // $("#chkCourses").on('click', function(){
-                //     if($(this).prop('checked')== true){
-                //         $('#ddlCourses option').prop('selected', true);
-                //          $('#coursesselect ul li').each(function(){
-                //             $(this).addClass('Active');
-                         
-                //         });
-                //     }
-                //     else{
-                //         $('#ddlCourses option').prop('selected', false);
-                //          $('#coursesselect ul li').each(function(){
-                //             $(this).removeClass('Active');
-                         
-                //         });
-                //     }
-                //    // $('.cbxAttendanceMonitoring').prop('checked',$(this).prop('checked'));
-                //     //$('#btnPrintDocument').val('Print Document ('+$('.cbxAttendanceMonitoring:checked').length+')');
-                // });
+        
                 sx.loadCourse();
             }
         });
@@ -470,163 +469,6 @@ var subView = {
     init: function() {
         var sx = this;
         sx.loadTable();
-     //   sx.loadInstitution();
-        // var formData = [{
-        //         type: "small",
-        //         name: "Institution",
-        //         input: $("<span class='custom-combobox'><select id='ddlPopupAcademicInstitution' name='AcademicInstitution'>Institution</select></span>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Academic Career",
-        //         filterType: "degree",
-        //         allOption: true,
-        //         input: $("<span class='custom-combobox'><select id='ddlPopupDegreeByID' name='DegreeByID'>Degree</select></span>")
-        //     }, {
-        //         type: "small",
-        //         name: "Campus",
-        //         input: $("<div style='width:35%;display:inline-block; margin-bottom:15px;'><span class='custom-multiselect'><select id='ddlPopupCampus' name='ddlCampus' multiple='multiple'>Campus</select></span></div>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Period",
-        //         input: $("<span class='custom-combobox'><select id='ddlPopupPeriod' name='ddlPeriod'>Period</select></span>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Faculty",
-        //         filterType: "group",
-        //         input: $("<span class='custom-combobox'><select id='ddlPopupGroup' name='AcadGroup'>Faculty</select></span>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Course Type",
-        //         input: $("<span class='custom-combobox'><select id='ddlCourseType' name='ddlCourseType'>Class Type</select></span>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Class Type",
-        //         input: $("<span class='custom-combobox'><select id='ddlClassType' name='ddlClassType'>Class Type</select></span>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "Start Date",
-        //         input: $("<input type='text'name='startDate'id='startDate'class='datepicker' ></input>")
-        //     },
-        //     {
-        //         type: "small",
-        //         name: "End Date",
-        //         input: $("<input type='text'name='endDate'id='endDate'class='datepicker' ></input>")
-        //     },
-        //     {
-        //         type: "big",
-        //         name: "",
-        //         input: $("<input type='hidden'name='action'id='action'value='create'></input>")
-        //     },
-        //     {
-        //         type: "big",
-        //         name: "",
-        //         input: $("<input type='hidden'name='ID'id='ID'></input>")
-        //     }
-        // ];
-
-        // var buttonData = ["<input type='submit' class='button button-primary' id='submit' value='SUBMIT' style='margin:30px 15px 20px;' />"]
-        // var requestFormData = {
-        //     listField: ['AcademicInstitution', 'CampusByID', 'AcademicCareerByID', 'AllAcademicGroup','TermbyCareer','AllCourseType']
-        // };
-
-        // BM.ajax({
-        //     url: BM.serviceUri + "General_Head_Prefect/getFilterData",
-        //     data: JSON.stringify(requestFormData),
-        //     type: "POST",
-        //     async: false,
-        //     dataType: "json",
-        //     success: function(data) {
-        //         data['ClassType'] = {FIELDVALUE: "", XLATLONGNAME: ""};
-        //         loadForm({
-        //             type: "dynamic",
-        //             formData: formData,
-        //             buttonList: buttonData,
-        //             onSubmit: function(e) {
-        //                 e.preventDefault();
-        //                 var el = $(e.target);
-        //                 var elj = el.serializeJSON();
-        //                 sx.submitForm(elj);
-        //             },
-        //             target: "formConfiguration",
-        //             value: ["AcademicInstitution", "Campus", 'Acad_Career', 'ACADGROUP_VALUE', 'FIELDVALUE', 'Waktu','CRSE_ATTR'],
-        //             idInput: ['PopupAcademicInstitution', 'PopupCampus', 'PopupDegreeByID', 'PopupGroup', 'ClassType', 'PopupPeriod','CourseType'],
-        //             text: ["Description", 'Descr', 'Descr', 'ACADGROUP_DESCR', 'XLATLONGNAME', 'DESCR','CRSE_DESCR'],
-        //             addAttr: [''],
-        //             prefix: ['ddl', 'ddl', 'ddl', 'ddl', 'ddl', 'ddl'],
-        //             itemData: {
-        //                 data: data
-        //             }
-
-        //         });
-        //          newSpecialFilter([{
-        //                 from: '#ddlPopupAcademicInstitution', // id dropdown awal
-        //                 to: '#ddlPopupDegreeByID', // id dropdown tujuan
-        //                 dataTo: data.AcademicCareerByID, // data dropdown tujuan dari getFilterData
-        //                 attr: 'AcademicInstitution', // attribut yang sama di antara from dan to
-        //                 toValue: 'Acad_Career', // value yg di tampilkan di dropdown to
-        //                 toText: 'Descr', // text yg di tampilkan di dropdown
-        //                 triggerFromStart: true // true or false trigger di awal });
-        //             }, {
-        //                 from: ['#ddlPopupAcademicInstitution','#ddlPopupDegreeByID'], // id dropdown awal
-        //                 to: '#ddlPopupCampus', // id dropdown tujuan
-        //                 dataTo: data.CampusByID, // data dropdown tujuan dari getFilterData
-        //                 attr: ['AcademicInstitution','ACAD_CAREER'], // attribut yang sama di antara from dan to
-        //                 toValue: 'Campus', // value yg di tampilkan di dropdown to
-        //                 toText: 'Descr', // text yg di tampilkan di dropdown
-        //                 triggerFromStart: true // true or false trigger di awal });
-        //             }, {
-        //                 from: ['#ddlPopupAcademicInstitution','#ddlPopupDegreeByID'], // id dropdown awal
-        //                 to: '#ddlPopupPeriod', // id dropdown tujuan
-        //                 dataTo: data.TermbyCareer, // data dropdown tujuan dari getFilterData
-        //                 attr: ['AcademicInstitution','ACAD_CAREER'], // attribut yang sama di antara from dan to
-        //                 toValue: 'Waktu', // value yg di tampilkan di dropdown to
-        //                 toText: 'DESCR', // text yg di tampilkan di dropdown
-        //                 triggerFromStart: true // true or false trigger di awal });
-        //             }, {
-        //                 from: ['#ddlPopupAcademicInstitution','#ddlPopupDegreeByID','#ddlPopupCampus','#ddlPopupPeriod'], // id dropdown awal
-        //                 to: '#ddlPopupGroup', // id dropdown tujuan
-        //                 dataTo: data.AllAcademicGroup, // data dropdown tujuan dari getFilterData
-        //                 attr: ['AcademicInstitution','ACAD_CAREER','CAMPUS','STRM'], // attribut yang sama di antara from dan to
-        //                 toValue: 'ACADGROUP_VALUE', // value yg di tampilkan di dropdown to
-        //                 toText: 'ACADGROUP_DESCR', // text yg di tampilkan di dropdown
-        //                 triggerFromStart: true // true or false trigger di awal });
-        //             }, {
-        //                 from: ['#ddlPopupAcademicInstitution','#ddlPopupDegreeByID','#ddlPopupCampus','#ddlPopupPeriod','#ddlPopupGroup'], // id dropdown awal
-        //                 to: '#ddlCourseType', // id dropdown tujuan
-        //                 dataTo: data.AllCourseType, // data dropdown tujuan dari getFilterData
-        //                 attr: ['AcademicInstitution','ACAD_CAREER','CAMPUS','STRM','ACADGROUP_VALUE'], // attribut yang sama di antara from dan to
-        //                 toValue: 'CRSE_ATTR', // value yg di tampilkan di dropdown to
-        //                 toText: 'CRSE_DESCR', // text yg di tampilkan di dropdown
-        //                 triggerFromStart: true // true or false trigger di awal });
-        //             }]);
-        //         sx.refreshCombobox();
-
-        //         $.each($('.datepicker'), function(a, b) {
-        //             $(this).BMdatepicker();
-        //         });
-        //         // $('#ddlPopupCampus').unbind().change(function() {
-        //         //     sx.loadBindCmb();
-        //         // });
-        //         // $('#ddlPopupDegreeByID').unbind().change(function() {
-        //         //     sx.loadBindCmb();
-        //         // });
-        //         //  $('#ddlPopupPeriod').unbind().change(function() {
-        //         //     sx.loadBindCmbClass();
-        //         // });
-        //         $('#ddlPopupDegreeByID').change();
-        //         $('#ddlPopupGroup').unbind().change(function() {
-        //             sx.loadBindCmbClass();
-        //         });
-        //         var tableInput = $('#firstTemplate');
-        //         tableInput.removeAttr('ID').attr("ID", "secondTable");
-        //         $('input[name=ID]').after(tableInput);
-        //     }
-        // });
+ 
     }
 };

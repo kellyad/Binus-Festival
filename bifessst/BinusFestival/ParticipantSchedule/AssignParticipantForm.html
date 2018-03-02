@@ -1,0 +1,165 @@
+<div class="popup popup-content" id="target-id">
+    <div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row" id="BeforePrev">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Assign Participant To Topic</h2>
+    <div id="formConfiguration" style="height:450px;">
+             <form id="formparticipant" action="" >
+         <div class="row"> 
+                <div class="column ">
+                    <p>
+                        <label>Participant Name</label>
+                        <span >
+                        <input type="text" name="NewParticipant" id="txtParticipantName" placeholder="Participant"  /> 
+                        </span>
+                    </p>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label>Campus</label>
+                    <span class="custom-combobox">
+                            <select name="Campus" id="ddlCampusPopUp">
+                            </select>
+                            <span class="loader" id="loaderCampusPopUp">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                    </span>
+                    </p>
+                </div>
+                <div class="column ">
+                    <p>
+                        <label>Topic</label>
+                    <span class="custom-combobox">
+                            <select name="Topic" id="ddlTopicPop">
+                            </select>
+                            <span class="loader" id="loaderTopicPop">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                    </span>
+                    </p>
+                </div>
+                 <div class="column one-two">
+                    <p>
+                        <label>Date</label>
+                        <span class="custom-combobox">
+                            <select name="Date" id="ddlDatePop">
+                            </select>
+                            <span class="loader" id="loaderDatePop">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                        
+                    </p>
+                </div>
+                <div class="column one-two">
+                    <p>
+                        <label>Room</label>
+                        <span class="custom-combobox">
+                            <select name="Room" id="ddlRoomPop">
+                            </select>
+                            <span class="loader" id="loaderRoomPop">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color:red;" >Capacity : </span>
+                        <span style="color:red;">
+                            <span  id="AssignedCapacityPop" style="color:red;">
+                                <!--<span class="indicator"></span>-->
+                            </span>
+                           <!-- <span id="RoomCapacityPop"></span>-->
+                        </span>
+                    </p>
+                </div>
+                <div class="column one-two">
+                    <p>
+                        <label>Time</label>
+                        <span class="custom-combobox">
+                            <select name="Time" id="ddlTimePop">
+                            </select>
+                            <span class="loader" id="loaderTimePop">
+                                <span class="indicator"></span>
+                                <span class="progress-text">Loading...</span>
+                            </span>
+                        </span>
+                        
+                    </p>
+                </div>
+            </div>
+            </form>
+    </div>
+            <div class="column">
+                <span class="loader status failed" id="status-failed" style="display:none">
+                    <span class="indicator"></span>
+                    <span class="progress-text"></span>
+                </span>
+                <span class="loader" id="submitLoading" style="position:absolute;display:none;">
+                    <span class="indicator"></span>
+                    <span class="progress-text">Loading...</span>
+                </span>
+                
+            </div>    
+            <div style="margin:10px 0;text-align:right;" class="afterLoad">
+                    <input value="Save" id="btnSave" class="button button-primary" />
+                </div>    
+    </div>
+    <div id="popup-message" style="width:90%;display:none">
+        <div align="center">
+            <h3 class="title"></h3>
+            <p class="message">
+        </div>
+        <div align="center" class="button-list">
+            
+        </div>
+    </div>
+
+   <!--  <h2 class="heading" style="text-align:center"><label id="actionTitle">Assign Participant To Topic</h2>
+   <table class="figuretab zebra bordered" id="tableFailed" style="text-align:center;">
+   <thead>
+       <th>Participant Name</th>
+       <th>Campus</th>
+       <th>Topic</th>
+       <th>Date</th>
+       <th>Room</th>
+       <th>Time</th>
+   </thead>
+   <tbody>
+        <tr id="iTemplatePopUp" style="display:none">
+            <td class="iOfficialNotesID" style="display:none;"></td>
+            <td class="iInstitution" style="display:none;">
+                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+            </td>
+            <td class="iParticipantName" style="text-align:center">
+                
+            </td>
+            <td class="iCampus" style="text-align:center">
+                
+            </td>
+            <td class="iTopic" style="text-align:center">
+                
+            </td>
+            <td class="iDate" style="text-align:center">
+                
+            </td>
+            <td class="iRoom" style="text-align:center">
+            </td>
+            <td class="iTime" style="text-align:center">
+            </td>
+        </tr>
+   </tbody>
+   </table> -->
+   <div class="action">
+   </br>
+   </div>
+   </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>

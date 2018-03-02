@@ -61,7 +61,7 @@ var subView = {
         $("#ddlPeriodPopUp").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderPeriodPopUp').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getAllSystemPeriod",
+            url : BM.serviceUri + "BifestController/SystemHandler/getAllSystemPeriod",
             type: "POST",
             data: JSON.stringify({
                 }),
@@ -90,7 +90,7 @@ var subView = {
     loadInit: function() {
         var sx = this;
         BM.ajax({
-            url : BM.serviceUri + "staff/HeadPrefect_Configuration/getSystemConfiguration",
+            url : BM.serviceUri + "BifestController/SystemHandler/getSystemConfiguration",
             type: "POST",
             data: JSON.stringify({ Period: $('#ddlPeriodPopUp option:selected').val() }),
             beforeSend: function(){
@@ -99,7 +99,7 @@ var subView = {
             success: function(data){
                 $.each(data, function(a, e) {
                     var c = $('#iTemplateOfficialNotesPopUp').clone().removeAttr('id').css('display', '').addClass('dataPopUp');
-                    $('.iOption', c).append('<a target="_blank" href="'+BM.baseUri+"newstaff/#/event/binusfestival/konfigurasiGroupPeserta."+e.SystemID+'"class="icon icon-edit"  style="cursor:pointer;"></a><a class="icon icon-trash"  style="cursor:pointer;"></a>');
+                    $('.iOption', c).append('<a target="_blank" href="'+BM.baseUri+"newstaff/#/event/binusfestival/ParticipantGroupConfiguration."+e.SystemID+'"class="icon icon-edit"  style="cursor:pointer;"></a><a class="icon icon-trash"  style="cursor:pointer;"></a>');
                     var d = $('#formparticipant .custom-combobox').clone();
                     $('#ddlPeriodPopUp', d).val(e.STRM);
                     $('.iOfficialNotesID ', c).append(e.SystemID);
@@ -149,7 +149,7 @@ var subView = {
                 }
                 BM.ajax({   
                     type: 'POST',
-                    url: BM.serviceUri + 'staff/HeadPrefect_Configuration/create_configurationfest' ,
+                    url: BM.serviceUri + 'BifestController/SystemHandler/saveSystemConfiguration' ,
                     dataType: 'json',
                     contentType: 'application/json;charset=utf-8',
                     data: JSON.stringify(configuration),

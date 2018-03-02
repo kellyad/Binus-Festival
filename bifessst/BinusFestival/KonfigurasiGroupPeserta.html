@@ -2,11 +2,21 @@
     <div class="item-view">
         <div class="item-body">
             <div class="row">
-    <h2 class="heading" style="text-align:center"><label id="actionTitle">Create/Edit/View Participant Group Configuration</label></h2>
-    
-    
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Participant Group Configuration</label></h2>
     </div>
-    <input type='button' class='button button-primary' id='btnAddPopUp' value='Add Row' style='margin:0 0 15px 0;' />
+    <div id="previousSchedule" class="inside">
+     <table style="border-collapse:inherit;">
+       <tr>
+            <td style="width:25%;">System</td><td width='3px'>:</td>
+            <td id='lblSystem'></td>
+       </tr>
+       <tr>
+       <td style="width:25%;">Period </td><td width='3px'>:</td>
+         <td id='lblPeriod'></td>
+       </tr>
+     </table>
+   </div>
+    <input type='button' class='button button-primary' id='btnAddPopUp' value='Add New' style='margin:0 0 15px 0;' />
             <div id="contentTable">
                 <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
                     <thead>
@@ -31,23 +41,30 @@
                                 
                             </td>
                             <td class="iStatus" style="text-align:center">
-                                 Not Configured Yet
+                                 
                             </td>
                             <td class="iOption" style="text-align:center"></td>
                         </tr>
                     </tbody>
                 </table>
-                 <input type='button' class='button button-primary' id='btnGoToRoomConfiguration' value='Go to Room Schedule Configuration' style='margin:0 0 15px 0;' />
+                <div style="text-align:right;">
+                 <input type='button' class='button button-primary' id='btnExport' value='Export To Excel' style='margin:15px 0 15px 0;' />
+                 <input type='button' class='button button-primary' id='btnGoToRoomConfiguration' value='Go to Schedule Configuration' style='margin:15px 0 15px 0;' />
+                </div>
             </div>
+            
+            <div class="ParticipantContent" style="display:none;">
+            <hr/>
              <div class="row">
               <div class="column has-border three-third">
                <div id="previousSchedule" class="inside">
-                 <dl>
-                   <dt>System</dt>
-                     <dd id='lblSystem'></dd>
-                   <dt>Participant Group</dt>
-                     <dd id='lblParticipantGroup'></dd>
-                 </dl>
+               <table style="border-collapse:inherit;">
+                   <tr>
+                        <td style="width:25%;">Participant Group</td><td width='3px'>:</td>
+                        <td id='lblParticipantGroup'></td>
+                   </tr>
+                </table>
+                 
                </div>
               </div>
              </div> 
@@ -79,11 +96,12 @@
                     </tbody>
                 </table>
             </div>
+            </div>
             <span class="loader failed" style="display:none">
                 <span class="indicator"></span>
                 <span class="progress-text"></span>
             </span>
-        <input type='button' class='button button-primary' id='btnSave' value='Save' style='margin:0 0 15px 0;' />
+        
     </div>
 </div>
 </div>

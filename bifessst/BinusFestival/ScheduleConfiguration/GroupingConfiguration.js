@@ -16,7 +16,7 @@ var popupSubView = {
     onLoaded: function(arg) {
         $('#GroupName').html(BM.filter.ParticipantGroupName);
          BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/GetGroupingConfiguration",
+            url : BM.serviceUri + "BifestController/ScheduleHandler/getGroupingConfiguration",
             type: "POST",
             data: JSON.stringify({
                     ParticipantGroupID:BM.filter.ParticipantGroupID,
@@ -41,7 +41,7 @@ var popupSubView = {
                 alert("Please filled capacity")
             }else{
             BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/SaveGroupConfiguration",
+            url : BM.serviceUri + "BifestController/ScheduleHandler/saveGroupingConfiguration",
             type: "POST",
             data: JSON.stringify({
                     ParticipantGroupID:BM.filter.ParticipantGroupID,
@@ -65,7 +65,7 @@ var popupSubView = {
         $("#ddlCampus").empty().closest('.custom-combobox').find('.combobox-label').remove();
         $('#loaderCampus').show();
         BM.ajax({
-            url : BM.serviceUri + "General_Head_Prefect/getCampus",
+            url : BM.serviceUri + "BifestController/GeneralHandler/getCampus",
             type: "POST",
             data: JSON.stringify({
                     Institution:$("#ddlAcademicInstitution").val(),
