@@ -1,0 +1,266 @@
+    <style>
+        .container{
+            width:90%;
+        }
+        .dataTables_scrollHeadInner  {
+            padding-left:0px !important;
+        }
+        #tableGrade tr th{
+            font-weight:bold;   
+        }
+        #tableGrade_filter{
+            padding:20px !important;
+        }
+        .gradeData.even{
+            background:#F0F0F0;
+        }
+        .gradeData:hover{
+            background:#D0D0D0;
+        }
+        .gradeData.odd.failed{
+            background:#ff4d4d;
+            color:white;
+        }
+        .gradeData.even.failed{
+            background:#ff1a1a;
+            color:white;
+        }
+
+    </style><script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.1/js/dataTables.fixedColumns.min.js"></script>
+    <div class="form-view">
+        <div class="item-view">
+            <div class="item-body ">
+                <div class="row search-filter-form">
+        <h2 class="heading" style="text-align:center"><label id="actionTitle">Participant Schedule</label> </h2>
+        <div id="formConfiguration" >
+            <form id="formparticipant" action="" >
+             <div class="row">
+                    <div class="column one-third">
+                        <p>
+                            <label>Institution</label>
+                            <span class="custom-combobox">
+                                <select name="AcademicInstitution" id="ddlAcademicInstitution">
+                                </select>
+                                <span class="loader" id="loaderInstitution">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column one-third">
+                        <p>
+                            <label>Academic Career</label>
+                            <span class="custom-combobox">
+                                <select name="Degree" id="ddlDegree">
+                                </select>
+                                <span class="loader" id="loaderDegree">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column one-third">
+                        <p>
+                            <label>Campus</label>
+                            <span class="custom-combobox">
+                                <select name="Campus" id="ddlCampus">
+                                </select>
+                                <span class="loader" id="loaderCampus">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column one-third">
+                        <p>
+                            <label>Period</label>
+                            <span class="custom-combobox">
+                                <select name="Period" id="ddlPeriod">
+                                </select>
+                                <span class="loader" id="loaderPeriod">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column one-third">
+                        <p>
+                            <label>Acad Organization</label>
+                            <span class="custom-combobox">
+                                <select name="AcadOrganization" id="ddlAcadOrganization">
+                                </select>
+                                <span class="loader" id="loaderAcadOrganization">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column one-third">
+                        <p>
+                            <label>Academic Program</label>
+                            <span class="custom-combobox">
+                                <select name="AcadProgram" id="ddlAcadProgram">
+                                </select>
+                                <span class="loader" id="loaderAcadProgram">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column one-third">
+                        <p>
+                            <label>Binusian</label>
+                             <span class="custom-combobox">
+                                <select name="Binusian" id="ddlBinusian">
+                                </select>
+                                <span class="loader" id="loaderBinusian">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="column one-third">
+                        <p>
+                            <label>Participant Name</label>
+                             <span >
+                                <input type="text" name="NewParticipant" id="txtParticipant" placeholder="Participant" style="margin-left: -5px;" /> 
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                </form>
+        </div>
+        
+        <input type='button' class='button button-primary' id='btnAssign' value='Assign Participant' style='margin:15px 0 15px 0;' /> 
+        <input type='button' class='button button-primary' id='btnSearch' value='Search' style='margin:15px 0 15px 0;' /> 
+        </div>
+       <!--  <center class="filterLoader">
+            <span class="loader">
+                <span class="indicator"></span>
+                <span class="progress-text">Loading...</span>
+            </span>
+        </center> -->
+
+                <div id="divContent" style="display:none;">
+        <div class="freeze-pane">
+        <table>
+            <thead>
+            </thead>
+            <tbody>
+                <tr id="iTappingAreaPopUp" style="display:none">
+                    <td class="iStudentID" style="text-align:center">
+                    </td>
+                    <td class="iTopic" style="text-align:center">
+                            <span class="custom-combobox">
+                                <select name="Topic" id="ddlTopic">
+                                </select>
+                                <span class="loader" id="loaderTopic">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                    </td>
+                    <td class="iSession" style="text-align:center">
+                    </td>
+                    <td class="iDate" style="text-align:center">
+                            <span class="custom-combobox">
+                                <select name="Date" id="ddlDate">
+                                </select>
+                                <span class="loader" id="loaderDate">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                    </td>
+                    <td class="iRoom" style="text-align:center">
+                            <span class="custom-combobox">
+                                <select name="Room" id="ddlRoom">
+                                </select>
+                                <span class="loader" id="loaderRoom">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                    </td>
+                    <td class="iCapacity" style="text-align:center">
+                    </td>
+                    <td class="iTime" style="text-align:center">
+                            <span class="custom-combobox">
+                                <select name="Time" id="ddlTime">
+                                </select>
+                                <span class="loader" id="loaderTime">
+                                    <span class="indicator"></span>
+                                    <span class="progress-text">Loading...</span>
+                                </span>
+                            </span>
+                    </td>
+                    <td class="iAction" style="text-align:center">
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                    <table class="figuretab zebra bordered" id="tableTappingAreaPopUp_Copy" style="text-align:center; display:none;">
+                        <thead>
+                                <th width='12%' style="text-align:center">STUDENT ID</th>
+                                <th width='12%' style="text-align:center">TOPIC</th>
+                                <th width='12%' style="text-align:center">SESSION</th>
+                                <th width='10%' style="text-align:center">DATE</th>
+                                <th width='5%' style="text-align:center">ROOM</th>
+                                <th width='5%' style="text-align:center">CAPACITY</th>
+                                <th width='5%' style="text-align:center">TIME</th>
+                                <th width='5%' style="text-align:center">ACTION</th>
+                        </thead>
+                        <tbody >
+                            
+                        </tbody>
+                    </table>
+                    <table class="figuretab zebra bordered" id="tableTappingAreaPopUp" style="text-align:center;">
+                        <thead>
+                                <th width='12%' style="text-align:center">STUDENT ID</th>
+                                <th width='12%' style="text-align:center">TOPIC</th>
+                                <th width='12%' style="text-align:center">SESSION</th>
+                                <th width='10%' style="text-align:center">DATE</th>
+                                <th width='5%' style="text-align:center">ROOM</th>
+                                <th width='5%' style="text-align:center">CAPACITY</th>
+                                <th width='5%' style="text-align:center">TIME</th>
+                                <th width='5%' style="text-align:center">ACTION</th>
+                        </thead>
+                        <tbody >
+                            
+                        </tbody>
+                    </table>
+                    
+                </div>
+                </div>
+
+                <span class="loader failed" style="display:none">
+                    <span class="indicator"></span>
+                    <span class="progress-text"></span>
+                </span>
+          
+        </div>
+    </div>
+    </div>
+    <div id="popup-message" style="width:90%;display:none">
+        <div align="center">
+            <h3 class="title"></h3>
+            <p class="message">
+        </div>
+        <div align="center" class="button-list">
+            
+        </div>
+    </div>
+    <script src="../asset/js/multiselect.js"></script>

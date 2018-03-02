@@ -1,0 +1,120 @@
+<center id="attendanceBodyLoader" style="margin-top:15px;">
+    <span class="loader">
+        <span class="indicator"></span>
+        <span class="progress-text">Loading...</span>
+    </span>
+</center>
+     
+<form id="attendanceBody" class="attendanceDiv" style="display:none;">
+       <div class="row">
+            <div class="column one-third">
+                <p>
+                    <label>INSTITUTION</label>
+                    <span id="LabelInstitution"> </span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>ACADEMIC CAREER</label>
+                    <span id="LabelAcadCareer"></span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>PERIOD</label>
+                    <span id="LabelSTRM"></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-third">
+                <p>
+                    <label>CAMPUS</label>
+                    <span id="LabelCampus"></span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>LOCATION</label>
+                    <span id="LabelLocation"></span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>ROOM</label>
+                    <span id="LabelRoom"></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-third">
+                <p>
+                    <label>TAPPING AREA</label>
+                    <span id="LabelTappingArea"></span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>TOPIC</label>
+                    <span id="LabelTopic"></span>
+                </p>
+            </div>
+            <div class="column one-third">
+                <p>
+                    <label>START DATE</label>
+                    <span id="LabelStartDate"></span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-third">
+                <p>
+                   <label>TIME</label>
+                    <span id="LabelTime" class="popup">
+                    </span>
+                </p>
+            </div>
+        </div>
+    <p></p>
+    <p><table class="attendanceTable bordered">
+        <thead>
+            <tr id = 'iFirstHeader'>
+                <th rowspan="3" class="NoHeader" style="width:30px;">NO</th>
+                <th rowspan="3" class="StudentIDHeader" style="width:75px;">STUDENT ID</th>
+                <th rowspan="3" class="StudentName" style="width:300px;">NAME</th>
+                <th colspan="2" class="iShiftHeader" style="display:none;">SESSION</th>
+            </tr>
+            <tr id = 'iSecondHeader"'>
+                <th colspan="2" class="iShiftNumber looptemplate"></th>
+            </tr>
+            <tr id="iThirdHeader">
+                <th class="iCheckboxHeader looptemplate"  style="width:50px;"><input type="checkbox"></th>
+                <th class="tapping iTappingTimeHeader looptemplate">Tapping<br>Time</th>
+            </tr>
+        </tr>
+</thead>
+<tbody>
+    <tr id="iListTemplate" class="looptemplate">
+        <td class="iNo" style="text-align:center;"></td>
+        <td class="iStudentID"></td>
+        <td class="iName"></td>
+        <td class="iCheckbox looptemplate"><input type="checkbox"></td>
+        <td class="iTappingTime looptemplate"></td>
+    </tr>
+</tbody>
+</table>
+
+</p>
+<p>
+    <label>
+        Note
+    </label>
+    <textarea id="txtNotes" />
+</p>
+<p style="text-align:center">
+    <span class="alert has-success" id="spanErrorMessage" style="text-align: center; margin-bottom: 15px; display:none;"></span>
+    <div style="text-align:right;">
+    <input type="button" class="button button-primary" id="btnSubmitAttendance" value="Submit" />
+    </div>
+</p>
+</form>

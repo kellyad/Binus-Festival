@@ -1,0 +1,108 @@
+<div class="form-view">
+    <div class="item-view">
+        <div class="item-body">
+            <div class="row">
+    <h2 class="heading" style="text-align:center"><label id="actionTitle">Participant Group Configuration</label></h2>
+    </div>
+    <div id="previousSchedule" class="inside">
+     <table style="border-collapse:inherit;">
+       <tr>
+            <td style="width:25%;">System</td><td width='3px'>:</td>
+            <td id='lblSystem'></td>
+       </tr>
+       <tr>
+       <td style="width:25%;">Period </td><td width='3px'>:</td>
+         <td id='lblPeriod'></td>
+       </tr>
+     </table>
+   </div>
+    <input type='button' class='button button-primary' id='btnAddPopUp' value='Add New' style='margin:0 0 15px 0;' />
+            <div id="contentTable">
+                <table class="figuretab zebra bordered" id="tableOfficialNotesPopUp" style="text-align:center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Participant Group Name</th>
+                            <th style="text-align:center">Total Session</th>
+                            <th style="text-align:center">Mandatory</th>
+                            <th style="text-align:center">Status</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr id="iTemplateOfficialNotesPopUp" style="display:none">
+                            <td class="iOfficialNotesID" style="display:none;"></td>
+                            <td class="iInstitution" style="display:none;">
+                                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+                            </td>
+                            <td class="iParticipantGroupName" style="text-align:center">
+                            </td>
+                            <td class="iTotalSession" style="text-align:center"></td>
+                            <td class="iMandatory" style="text-align:center">
+                                
+                            </td>
+                            <td class="iStatus" style="text-align:center">
+                                 
+                            </td>
+                            <td class="iOption" style="text-align:center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align:right;">
+                 <input type='button' class='button button-primary' id='btnExport' value='Export To Excel' style='margin:15px 0 15px 0;' />
+                 <input type='button' class='button button-primary' id='btnGoToRoomConfiguration' value='Go to Schedule Configuration' style='margin:15px 0 15px 0;' />
+                </div>
+            </div>
+            
+            <div class="ParticipantContent" style="display:none;">
+            <hr/>
+             <div class="row">
+              <div class="column has-border three-third">
+               <div id="previousSchedule" class="inside">
+               <table style="border-collapse:inherit;">
+                   <tr>
+                        <td style="width:25%;">Participant Group</td><td width='3px'>:</td>
+                        <td id='lblParticipantGroup'></td>
+                   </tr>
+                </table>
+                 
+               </div>
+              </div>
+             </div> 
+    <input type='button' class='button button-primary' id='btnAddParticipantPopUp' value='Add New Participant' style='margin:0 0 15px 0;' />
+             <div id="contentTable">
+                <table class="figuretab zebra bordered" id="tableParticipantConfiguration" style="text-align:center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Include</th>
+                            <th style="text-align:center">Exclude</th>
+                            <th style="text-align:center">Exclude System</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr id="iTemplateParticipantPopUp" style="display:none">
+                            <td class="iOfficialNotesID" style="display:none;"></td>
+                            <td class="iInstitution" style="display:none;">
+                                <input type="text" class="txtInstitution" name="Institution" size="1" style="text-align:center" maxlength="5" />
+                            </td>
+                            <td class="iInclude" style="text-align:center">
+                            </td>
+                            <td class="iExclude" style="text-align:center"></td>
+                            <td class="iExcludeSystem" style="text-align:center">
+                                
+                            </td>
+                            <td class="iOption" style="text-align:center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <span class="loader failed" style="display:none">
+                <span class="indicator"></span>
+                <span class="progress-text"></span>
+            </span>
+        
+    </div>
+</div>
+</div>
+<script src="../asset/js/multiselect.js"></script>
